@@ -33,14 +33,7 @@ if(BUILD_PLAYERBOTS)
   )
 
   FetchContent_GetProperties(PlayerBots)
-  if (NOT playerbots_POPULATED)
-    FetchContent_Populate(PlayerBots)
-    message(STATUS "Playerbots module source dir: ${playerbots_SOURCE_DIR}")
-  else()
-    message(STATUS "Playerbots module already populated: ${playerbots_POPULATED}")
-  endif()
-
-  add_subdirectory(${playerbots_SOURCE_DIR})
+    FetchContent_MakeAvailable(PlayerBots)
 
 else()
   if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/modules/PlayerBots)
